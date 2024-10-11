@@ -1,0 +1,175 @@
+
+
+body{
+    margin:0 ;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'jost' , sans-serif;
+}
+
+.main{
+    width: 40%;
+    height: 500px;
+    background: red;
+    overflow: hidden;
+    background: url(https://www.creativefabrica.com/wp-content/uploads/2022/01/06/Vivid-Violet-Sparkle-Bokeh-Background-Graphics-23059486-1.jpg) no-repeat center / cover;
+    border-radius: 10px;
+    box-shadow: 5px 20px 50px #000;
+    
+}
+
+#chk{
+    display: none;
+}
+.signup{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-family: 'jost' , sans-serif;
+    font-weight: bold;
+}
+label1{
+    color: #fff;
+    font-size: 2.3em;
+    justify-content: center;
+    display: flex;
+    margin: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+    align-items: center;
+    font-family: 'jost' , sans-serif;
+}
+input{
+    width: 50%;
+    height: 20px;
+    background: #fff8fe;
+    justify-content: center;
+    display: flex;
+    margin: 10px auto;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    color: rgb(87, 13, 94) ;
+    box-shadow: #660979;
+    font-family: 'jost' , sans-serif;
+}
+.signup p{
+    align-content: center;
+    justify-content: center;
+    float: left;   
+    height: 20%;
+    width: 60%;
+    color: white;
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    font-weight: bold;
+    font-family: 'jost' , sans-serif;
+
+}
+
+.main button{
+    width: 30%;
+    height: 35px;
+    margin: 5px auto;
+    justify-content: center;
+    display: block;
+    color: #fff;
+    background-color: #8d469b;
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 20px;
+    outline: none;
+    border:none;
+    border-radius: 5px;
+    transition: .2s ease-in;
+    cursor: pointer;
+    font-family: 'jost' , sans-serif;
+    padding: 10px 20px;
+}
+.signup button{
+    background-color: #592a5e;
+    color: white;
+}
+
+button:hover{
+    background: #660979;
+}
+.login{
+    height: 460px;
+    background: url(https://th.bing.com/th/id/R.5861313a762f8ba11c2650e882ba90b9?rik=hvk%2b6DbjBl2nig&pid=ImgRaw&r=0);
+    border-radius: 60% /10%;
+    transform: translateY(-180px);
+    transition: .8s ease-in-out;
+}
+
+.login label{
+    color: #660979;
+    transform: scale(.6);
+    font-size: 2.3em;
+    justify-content: center;
+    display: flex;
+    margin: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .5s ease-in-out;
+    align-items: center;
+    font-family: 'jost' , sans-serif;
+}
+
+.login .input{
+        width: 50%;
+        height: 15px;
+        background: #c4aec0;
+        justify-content: center;
+        display: flex;
+        margin: 8px auto;
+        padding: 10px;
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        box-shadow: #4f2957;
+        font-family: 'jost' , sans-serif;
+
+    
+}
+.login p{
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+    width: 50%;
+    color: #592a5e;
+    display: flex;
+    margin: 20px auto;
+    padding: 18px;
+    font-weight: bold;
+    font-family: 'jost' , sans-serif;
+}
+
+#chk:checked ~ .login{
+       transform: translateY(-500px);
+}
+
+#chk:checked ~ .login label{
+    transform: scale(1);
+}
+#chk:checked ~ .signup label{
+    transform:scale(1);
+    color: #ffffff; 
+        padding: 0px;
+        bottom: 0;
+        position: absolute;
+        width: 100%;
+        height: 60px;
+        margin-top: 800px;
+    
+    
+    }
+    
+   

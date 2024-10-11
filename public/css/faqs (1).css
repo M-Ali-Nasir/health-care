@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    background-image: url(https://th.bing.com/th/id/OIP.Qm0UV2mrrSv2QuO4viVrlAHaE7?rs=1&pid=ImgDetMain);
+}
+
+header {
+    background-color: #592a5e;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    height: 70px;
+}
+
+main {
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    color: #592a5e;
+}
+
+.faq-item {
+    margin: 10px 0;
+}
+
+.accordion {
+    background-color: #f5e3f4;
+    color: #592a5e;
+    cursor: pointer;
+    padding: 10px;
+    border: 500;
+    text-align: left;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    
+}
+
+.accordion:hover {
+    background-color:plum;
+}
+
+.panel {
+    padding: 0 15px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    color: #592a5e;
+}
+
+.panel p {
+    margin: 10px 0;
+}
+footer {
+    background-color: #bc71bb;
+    color: #ffffff; 
+    padding: 5px;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content:center;
+    padding: 0 15px;
+    flex-wrap: wrap;
+  }
+  
+  .footer-section {
+    flex: 1;
+    min-width: 200px;
+    margin: 5px 0;
+    
+  }
+  
+  .footer-section h2 {
+    color:#592a5e; 
+    font-size: 18px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+  }
+  
+  .footer-section p, .footer-section ul, .footer-section a {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 5px 0;
+    font-size: 14px;
+    margin-left: 15px;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-section ul li a:hover {
+    color:#7a2978; 
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding: 10px 0;
+    background-color:#592a5e; 
+  }
+  
+  .footer-bottom p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  .back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color:#592a5e;
+    color: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    text-decoration: none;
+  }
+  .back-to-top:hover {
+    background-color:#7a2978;
+  } 
+  

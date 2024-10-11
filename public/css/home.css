@@ -1,0 +1,467 @@
+/* Google Font Poppins */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+  :root{
+    --purple :#592a5e;
+    --white :#f4eff5;
+    --black:#040404;
+    --box-shadow: .5rem .5rem 0 rgba(5, 5, 5, 0.826);
+    --text-shadow: .4rem .4rem 0 rgba(231, 217, 227, 0.826);
+  }
+
+  *{
+    font-family: "Poppins", sans-serif;
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    outline: name;border: name;
+    text-transform: capitalize;
+    transition: all .2s ease-out;
+    text-decoration: none;
+
+  }
+  html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+  }
+  section{
+    padding: 5rem 9%;
+  }
+ 
+  section:nth-child(even){
+    background:white;
+  .header {
+    padding: 0;
+    margin: 0;
+  }
+  }
+  .heading{
+    text-align: center;
+    padding-bottom: 2rem;
+    text-shadow: var(--text-shadow);
+    text-transform: uppercase;
+    color: #040404;
+    font-size: 5rem;
+    letter-spacing: .4rem;
+  }
+  .heading span{
+    text-transform: uppercase;
+    color:#592a5e;
+  }
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-image: linear-gradient(#592a5e, rgba(243, 222, 237, 0.826));
+    color: white;
+    
+}
+.navbar .logo img {
+  width: 60px; 
+  height:60px ;
+}
+.navbar ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+nav li{
+    display: inline-block;
+    list-style: none;
+    padding: 0px 20px;
+}
+a,button{
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+   color: white;
+  cursor: pointer;
+}
+
+nav li a:hover{
+  color: #7a2978;
+  transition: all 0.4s ease 0s;
+}
+
+nav li a:hover{
+    color:#592a5e;
+    transition: all 0.4s ease 0s;
+}
+.navbar .stories .dropdown {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: #9a5498;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.navbar .stories .dropdown a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.navbar .stories .dropdown a:hover {
+  background-color: #073c83e3;
+}
+.navbar .stories:hover .dropdown {
+  display: block;
+}
+.navbar .stories {
+    position:relative;
+}
+.navbar .login button {
+    background-color:#592a5e;
+    color: white;
+    border: none;
+    padding: 20px 30px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+.navbar .login .dropdown {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: #9a5498;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.navbar .login .dropdown a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.navbar .login .dropdown a:hover {
+  background-color: #073c83e3;
+}
+.navbar .login:hover .dropdown {
+  display: block;
+}
+.navbar .login button:hover{
+    background-color:#592a5e;
+}
+.image-section {
+  text-align: center; /* Center the image within the section */
+  padding: 0px;     /* Add some padding */
+  background-color: #f0f0f0; /* Optional background color */
+  margin: 0;
+}
+.image-section img{
+  width: 100%;
+  height: 350px ;
+}
+
+.responsive-image {
+  max-width: 100%;  /* Make the image responsive */
+      /* Maintain aspect ratio */
+}
+
+.text-overlay {
+  position: absolute;
+  top: 35%; /* Adjust as needed */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(57, 4, 57);
+  text-align: center;
+  font-size: 20px;
+}
+.heading {
+  font-size: 40px; /* Adjust size as needed */
+  font-weight: bold;
+}
+.paragraph {
+  font-size: 22px; /* Adjust size as needed */
+}
+
+ 
+
+.icons-container{
+  display:grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  padding-top: 5rem;
+  padding-bottom:5rem;
+  
+}
+.icons-container .icons                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      {
+  border: var(--box-shadow);
+  box-shadow: var(--box-shadow);
+  border-radius: .5rem;
+  text-align: center;
+  padding-top: 2.5rem;
+  border: 1px solid #040404; /* Border for individual grid items */
+  background-color: var(--purple); /* Background color for grid items */
+}
+
+
+.icons-container .icons h3{
+  font-size: 3.5rem;
+  color: var(--white);
+  padding: 2rem 0;
+  text-shadow: var(--text-shadow);
+}
+.icons-container .icons p{
+  font-size: 15px;
+  padding-top: 3rem 0;
+  padding-bottom: 3rem 0;
+  text-transform: initial;
+  font-weight:bold;
+
+  color: white;
+  
+
+}
+.services .box-container{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+  gap: 2rem;
+}
+.services .box-container .box{
+  background:#592a5e;
+  border-radius: .5rem;
+  box-shadow: var(--box-shadow);
+  border: var(--border);
+  padding: 2.5rem;
+}
+
+
+.box .Alerts.dropdown {
+  position: absolute;
+  display: none;
+  top: 40px;
+  right: 0;
+  background-color: #9a5498;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.box .Alerts .dropdown a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.box .Alerts.dropdown a:hover {
+  background-color: #66335ce3;
+}
+.box .Alerts :hover .dropdown {
+   display: block;
+}
+.iconify {
+  font-size: 36px; /* Adjust the size of the icon */
+  color:#f4eff5; /* Change the color of the icon */
+}
+.iconify:hover {
+  color:#592a5e; /* Change color on hover */
+  transform: scale(1.2); /* Slightly increase size on hover */
+}
+
+.services .box-container .box h3{
+  color: var(--black);
+  text-shadow: var(--text-shadow);
+
+  font-size: 2.0rem;
+  padding: 1rem 0;
+}
+.services .box-container .box p{
+
+  color: var(--white);
+  font-size: 1.1rem;
+  line-height: 2;
+}
+
+/* styles.css */
+.box-container button {
+  background-color:white; /* Green background */
+  border: none;              /* Remove borders */           
+  padding: 5px 10px;        /* Add some padding */
+  text-align: center;        /* Center the text */
+  text-decoration:none;     /* Remove underline */
+  display:inline-flexbox;     /* Make the button fit its content */
+  font-size: 10px;           /* Set font size */
+  margin: 2px 1px;           /* Add some margins */
+  cursor: pointer;           /* Add a pointer cursor on hover */
+  border-radius: 6px;        /* Rounded corners */
+  justify-content: center;
+  color: #592a5e;
+}
+.box-container button:hover{
+  background-color: #9a5498;
+}
+.about .row{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.about .row .image{
+  flex: 1 1 45rem;
+}
+.about .row .image img{
+  width:100%;
+}
+.about .row .content{
+  flex: 1 1 45rem;
+}
+.about .row .content h3{
+  color: var(--purple);
+  text-shadow: var(--text-shadow);
+  font-size: 3.5rem;
+  line-height: 1.5;
+}
+.about .row .content p{
+  color:var(--black);
+  padding: 1rem 0;
+  font-size: 1.5rem;
+  line-height: 1.8;
+  text-transform: initial;
+}
+footer {
+  background-color: #bc71bb;
+  color: #ffffff; 
+  padding: 5px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content:center;
+  padding: 0 15px;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  margin: 5px 0;
+  
+}
+
+.footer-section h2 {
+  color:#592a5e; 
+  font-size: 18px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+}
+
+.footer-section p, .footer-section ul, .footer-section a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 5px 0;
+  font-size: 14px;
+  margin-left: 15px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a:hover {
+  color:#7a2978; 
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 10px 0;
+  background-color:#592a5e; 
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color:#592a5e;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  text-align: center;
+  font-size: 20px;
+  text-decoration: none;
+}
+.back-to-top:hover {
+  background-color:#7a2978;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* media queries */
+@media (max-width:991px){
+  html{
+    font-size: 55%;
+  
+  } 
+  .header{
+    padding: 2rem;
+  }
+}
+@media (max-width:768px){
+  #menu-btn{
+    display: initial;
+  }
+  .header .navbar{
+    position: absolute;
+    top: 115%; right: 2rem;
+    border-radius: .5rem;
+    box-shadow: var(--box-shadow);
+    width: 30rem;
+    border: var(--border);
+    background: #f4eff5;
+    transform: scale(0);
+    opacity: 0;
+    transform-origin: top right;
+    transition: none;
+  }
+  .header .navbar.active{
+    transform: scale(1);
+    opacity: 1;
+    transition: .2s ease-out;
+
+  }
+  .header .navbar a{
+    font-size: 2rem;
+    display: block;
+    margin: 2.5rem;
+  }
+
+}
+
+@media (max-width:450px){
+  html{
+    font-size: 55%;
+  
+  } 
+ 
+
+}
