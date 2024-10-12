@@ -13,21 +13,34 @@
 
 <body>
     <div class="container">
-        <form id="appointmentForm">
+        <form id="appointmentForm" action="{{ route('appointments-store') }}" method="POST">
+            @csrf
             <div class="form-group">
                 <label for="medName">Doctor Name:</label>
-                <input type="text" id="medName" name="medName" required>
+                <input type="text" id="medName" name="doctor_name" required>
+                @error('doctor_name')
+                <p>{{ $error }}</p>
+
+                @enderror
             </div>
             <div class="form-group">
                 <label for="startDate">Appointment Date:</label>
-                <input type="date" id="startDate" name="startDate" required>
+                <input type="date" id="startDate" name="appointment_date" required>
+                @error('startDate')
+                <p>{{ $error }}</p>
+
+                @enderror
             </div>
             <div class="form-group">
                 <label for="alarmTime">Time of Appointment:</label>
-                <input type="time" id="alarmTime" name="alarmTime" required>
+                <input type="time" id="alarmTime" name="appointment_time" required>
+                @error('appointment_time')
+                <p>{{ $error }}</p>
+
+                @enderror
             </div>
             <div class="form-group1">
-                <button type="submit"><a href="appointment alert history.html" class="form-group1">Save</a></button>
+                <button type="submit">Save</button>
             </div>
         </form>
     </div>

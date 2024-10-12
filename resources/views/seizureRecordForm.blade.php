@@ -14,10 +14,11 @@
     </header>
 
     <main>
-        <div class="container">
+        <div class="container" style="position:relative; margin-top:60px;">
             <section id="seizure-form">
                 <h2>Record Your Seizure Details</h2>
-                <form id="record-form">
+                <form id="record-form" action="{{ route('store-seizure-record') }}" method="post">
+                    @csrf
                     <label for="date">Date:</label>
                     <input type="date" id="date" name="date" required>
 
@@ -33,7 +34,7 @@
 
 
 
-                    <button1 type="submit"><a href="seizure record history.html">Submit</a></button1>
+                    <button type="submit" style="height: 30px; font-size:20px; cursor: pointer;">Submit</button>
                 </form>
             </section>
 

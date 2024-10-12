@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SeizureRedocrdController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'homeView'])->name('home');
@@ -28,15 +30,14 @@ Route::get('/breathing-exercise', [HomeController::class, 'breathingExerciseView
 Route::middleware(['role:user'])->group(function () {
 
   Route::get('/appointment-alert-set', [HomeController::class, 'appointmentAlertSetView'])->name('appointment-alert-set');
-
   Route::get('/appointment-alert-history', [HomeController::class, 'appointmentAlertHistoryView'])->name('appointment-alert-history');
+  Route::post('/appointments/store', [AppointmentController::class, 'store'])->name('appointments-store');
 
   Route::get('/seizure-record-history', [HomeController::class, 'seizureRecordHistoryView'])->name('seizure-record-history');
-
   Route::get('/seizure-record-form', [HomeController::class, 'seizureRecordFormView'])->name('seizure-record-form');
+  Route::post('/store-seizure-record', [SeizureRedocrdController::class, 'storeSeizureRecord'])->name('store-seizure-record');
 
   Route::get('/medicine-alarm-set', [HomeController::class, 'medicineAlarmSetView'])->name('medicine-alarm-set');
-
   Route::get('/medicine-alarm-history', [HomeController::class, 'medicineAlarmHistoryView'])->name('medicine-alarm-history');
 });
 

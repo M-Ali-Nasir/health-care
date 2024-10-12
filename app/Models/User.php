@@ -46,4 +46,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function seizureRecord()
+    {
+        return $this->hasMany(SeizureRecord::class);
+    }
+
+    public function appointment()
+    {
+        return $this->hasMany(Appointment::class);
+    }
 }

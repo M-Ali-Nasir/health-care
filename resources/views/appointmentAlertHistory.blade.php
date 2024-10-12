@@ -1,3 +1,7 @@
+@php
+use Carbon\Carbon;
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,22 +30,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Example of alarm history rows. You should dynamically generate these rows based on your data. -->
+
+                    @if ($appointments)
+                    @foreach ($appointments as $appointment)
+
                     <tr>
-                        <td>2024</td>
-                        <td>July</td>
-                        <td>28</td>
-                        <td>05:03 pm</td>
-                        <td>Dr.Ahmad</td>
+                        <td>{{ Carbon::parse($appointment->appointment_date)->format('Y') }}</td>
+                        <td>{{ Carbon::parse($appointment->appointment_date)->format('F') }}</td>
+                        <td>{{ Carbon::parse($appointment->appointment_date)->format('d') }}</td>
+                        <td>{{ Carbon::parse($appointment->appointment_date)->format('h:i A') }}</td>
+                        <td>{{ $appointment->doctor_name }}</td>
                     </tr>
-                    <tr>
-                        <td>2024</td>
-                        <td>June</td>
-                        <td>15</td>
-                        <td>05:03 pm</td>
-                        <td>Dr.Fatima Kaukab</td>
-                    </tr>
-                    <!-- Add more rows here -->
+
+                    @endforeach
+                    @endif
+
+
                 </tbody>
             </table>
         </section>

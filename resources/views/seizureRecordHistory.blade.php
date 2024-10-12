@@ -1,3 +1,7 @@
+@php
+use Carbon\Carbon;
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,6 +11,11 @@
     <title>Save History</title>
     <link rel="stylesheet" href="{{ asset('css/seizure record history.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
 </head>
 
 <body>
@@ -14,13 +23,41 @@
         <h1>Seizure History</h1>
     </header>
 
-    <main>
+
+    <main style="position: relative; padding:70px 0 200px 0; background-color:transparent;">
         <section id="history">
-            <h2>Saved Records</h2>
-            <div id="record-list"></div>
+            <h2 style="text-align: center">Saved Records</h2>
+            <div id="record-list" class="text-center">
+                <table class="table">
+                    <thead>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Duration</th>
+                        <th>Description</th>
+                    </thead>
+                    <tbody>
+                        @if ($records)
+                        @foreach ($records as $record)
+
+                        <tr>
+                            <td>{{ $record->date }}</td>
+                            <td>{{ Carbon::parse($record->time)->format('h:i A') }}</td>
+                            <td>{{ $record->duration }} days</td>
+                            <td>{{ $record->description }}</td>
+                        </tr>
+
+
+                        @endforeach
+                        @endif
+                    </tbody>
+                </table>
+
+            </div>
             <canvas id="record-chart"></canvas>
-            <button1 id="add-new"><a href="{{ route('seizure-record-form') }}" class="add-new">Add New Record</a></a>
-            </button1>
+            <button id="add-new" class="rounded-3"><a href="{{ route('seizure-record-form') }}" class="add-new p-2">Add
+                    New
+                    Record</a>
+            </button>
         </section>
     </main>
 

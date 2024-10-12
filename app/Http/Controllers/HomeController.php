@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
+use App\Models\SeizureRecord;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -80,14 +83,19 @@ class HomeController extends Controller
     //Appointment Alert History Page
     public function appointmentAlertHistoryView()
     {
-        return view('appointmentAlertHistory');
+
+        $appointments = Appointment::where('user_id', Auth::id())->get();
+        return view('appointmentAlertHistory', compact('appointments'));
     }
 
 
     //seizure Record History Page
     public function seizureRecordHistoryView()
     {
-        return view('seizureRecordHistory');
+
+        $records = SeizureRecord::where('user_id', Auth::id())->get();
+
+        return view('seizureRecordHistory', compact('records'));
     }
 
 
