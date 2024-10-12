@@ -3,38 +3,34 @@
 @section('main')
 <div class="container">
 
-  <h4>All Categories:</h4>
+  <h4>All Users:</h4>
 
 
   <table class="table" id="outofstockTable">
     <thead>
       <tr>
         <th class="fw-bold">Sr.</th>
-        <th class="fw-bold">Category Id</th>
-        <th class="fw-bold">Category Name</th>
-        <th class="fw-bold">Actions</th>
+        <th class="fw-bold">User Name</th>
+        <th class="fw-bold">User Email</th>
+
 
       </tr>
     </thead>
     <tbody>
 
-      @if (isset($categories))
+      @if (isset($users))
       @php
       $sr=0;
       @endphp
-      @foreach ($categories as $category)
+      @foreach ($users as $user)
       @php
       $sr ++;
       @endphp
       <tr>
         <td>{{ $sr }}</td>
-        <td>{{ $category->id }}</td>
-        <td>{{ $category->name }}</td>
-        <td>
+        <td>{{ $user->name }}</td>
+        <td>{{ $user->email }}</td>
 
-          <a href="{{ route('edit-categories', ['id' => $category->id]) }}" class="btn btn-primary">Edit</a>
-          <a href="{{ route('delete-category',['id' => $category->id]) }}" class="btn btn-danger">Delete</a>
-        </td>
       </tr>
       @endforeach
 

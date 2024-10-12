@@ -241,6 +241,55 @@
     <a href="#" class="back-to-top">↑</a>
     <!-- about section ends -->
     <script src="home final.js"></script>
+
+
+    {{-- npm install --save laravel-echo pusher-js --}}
+
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+    <script src="{{ asset('js/echo.js') }}"></script>
+    <script>
+        // Configure Echo and Pusher
+    window.Pusher = require('pusher-js');
+    window.Echo = new Echo({
+        broadcaster: 'pusher',
+        key: 'your-pusher-key',
+        cluster: 'your-cluster',
+        forceTLS: true
+    });
+
+    // Set the logged-in user's ID
+    const userId = "{{ Auth::id() }}";
+
+    if (userId) {
+        Echo.private(`App.Models.User.${userId}`)
+            .notification((notification) => {
+                // Show the browser alert
+                alert(notification.title + ': ' + notification.description);
+
+                // Play the alarm sound
+                const audio = new Audio('{{ asset('alarm/alarm.mp3') }}');
+                audio.play();
+                
+                // Optional: Show a visual notification
+                if (Notification.permission === "granted") {
+                    new Notification(notification.title, {
+                        body: notification.description,
+                        icon: '/path/to/icon.png'
+                    });
+                } else if (Notification.permission !== "denied") {
+                    Notification.requestPermission().then(permission => {
+                        if (permission === "granted") {
+                            new Notification(notification.title, {
+                                body: notification.description,
+                                icon: '/path/to/icon.png'
+                            });
+                        }
+                    });
+                }
+            });
+    }
+    </script>
+
 </body>
 
 </html>

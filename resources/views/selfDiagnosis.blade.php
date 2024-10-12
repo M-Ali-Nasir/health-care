@@ -18,9 +18,9 @@
             <h2>Self-Diagnosis Questions</h2>
             <form id="diagnosis-form">
                 <p>Please answer the following questions:</p>
-                <!-- Questions will be inserted here -->
+              
                 <div id="question-container">
-                    <!-- Question blocks will be dynamically inserted here -->
+                    
                 </div>
                 <button type="submit">Submit</button>
             </form>

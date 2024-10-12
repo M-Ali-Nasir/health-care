@@ -105,6 +105,40 @@ use Carbon\Carbon;
     <a href="#" class="back-to-top">↑</a>
     <!-- about section ends -->
     <script src="home final.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        @if (session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: "{{ session('success') }}"
+            });
+        @endif
+    
+        @if (session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Error!',
+                text: "{{ session('error') }}"
+            });
+        @endif
+    
+        @if (session('info'))
+            Swal.fire({
+                icon: 'info',
+                title: 'Info',
+                text: "{{ session('info') }}"
+            });
+        @endif
+    
+        @if (session('warning'))
+            Swal.fire({
+                icon: 'warning',
+                title: 'Warning',
+                text: "{{ session('warning') }}"
+            });
+        @endif
+    </script>
 </body>
 
 </html>

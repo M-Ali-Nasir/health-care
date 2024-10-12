@@ -72,12 +72,15 @@ nav li {
     list-style: none;
     padding: 0px 20px;
 }
+nav a {
+    color: white;
+}
 a,
 button {
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
-    color: white;
+
     cursor: pointer;
 }
 
@@ -100,14 +103,19 @@ nav li a:hover {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
+nav .stories .dropdown a {
+    background-color: white;
+    color: purple;
+}
 .navbar .stories .dropdown a {
-    color: white;
+    color: rgb(145, 90, 159);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
 }
 .navbar .stories .dropdown a:hover {
     background-color: #073c83e3;
+    color: rgb(255, 255, 255);
 }
 .navbar .stories:hover .dropdown {
     display: block;
@@ -139,6 +147,9 @@ nav li a:hover {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+}
+.login a {
+    color: white;
 }
 .navbar .login .dropdown a:hover {
     background-color: #073c83e3;

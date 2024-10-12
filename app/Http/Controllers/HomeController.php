@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use App\Models\Medicine;
+use App\Models\Painting;
 use App\Models\SeizureRecord;
 use App\Models\Story;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -59,7 +62,7 @@ class HomeController extends Controller
     //User Profile Page
     public function userProfileView()
     {
-        $user = User::where('id', Auth::id())->with('appointment', 'medicine', 'story', 'seizureRecord')->first();
+        $user = User::where('id', Auth::id())->with('appointment', 'medicine', 'story', 'seizureRecord', 'painting')->first();
 
 
         return view('userProfile', compact('user'));
@@ -131,6 +134,46 @@ class HomeController extends Controller
     public function paitNowView()
     {
         return view('paintNow');
+    }
+
+    //save painting
+    public function savePainting(Request $request)
+    {
+        try {
+
+            if (!$request->has('image')) {
+                return response()->json(['error' => 'No image data provided'], 400);
+            }
+
+
+            $data = $request->input('image');
+            $image = str_replace('data:image/png;base64,', '', $data);
+            $image = str_replace(' ', '+', $image);
+            $imageName = Auth::id() . '_' . time() . '.png';
+
+
+            $path = public_path('paintings/' . $imageName);
+
+
+            if (!file_exists(public_path('paintings'))) {
+                mkdir(public_path('paintings'), 0755, true);
+            }
+
+
+            if (file_put_contents($path, base64_decode($image)) === false) {
+                return response()->json(['error' => 'Failed to save the image file.'], 500);
+            }
+
+            $painting = new Painting();
+            $painting->user_id = Auth::id();
+            $painting->image_path = 'paintings/' . $imageName;
+            $painting->save();
+
+            return response()->json(['success' => 'Painting saved successfully!']);
+        } catch (\Exception $e) {
+            Log::error('Save Painting Error: ' . $e->getMessage());
+            return response()->json(['error' => 'An unexpected error occurred.'], 500);
+        }
     }
 
 

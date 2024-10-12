@@ -15,8 +15,8 @@
             <h1>Epilepsy Caregiver - Relaxation Art</h1>
             <nav>
                 <ul>
-                    <li><a href="index.html"><a href="home final.html">Home</a></a></li>
-                    <li><a href="ra4 paint now.html"><a href="ra4 paint now.html">Paint Now</a></a></li>
+                    <li><a href="index.html"><a href="{{ route('home') }}">Home</a></a></li>
+                    <li><a href="ra4 paint now.html"><a href="{{ route('paint-now') }}">Paint Now</a></a></li>
                 </ul>
             </nav>
         </header>

@@ -200,6 +200,26 @@ use Carbon\Carbon;
             </section>
 
 
+            <section class="alarm-history">
+                <header>
+                    <h1>My saved Paintings</h1>
+                </header>
+
+                <div>
+                    @if ($user->painting)
+                    @foreach ($user->painting as $painting)
+
+
+                    <img src="{{ asset($painting->image_path) }}" alt="{{ $painting->image_path }}"
+                        style="border: 1px solid black" width="200px" height="200px">
+
+                    @endforeach
+                    @endif
+                </div>
+
+            </section>
+
+
 
 
         </main>

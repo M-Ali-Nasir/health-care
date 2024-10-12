@@ -3,49 +3,47 @@
 @section('main')
 <div class="container">
 
-  <h4>All Categories:</h4>
-
+  <h4>User Stories:</h4>
 
   <table class="table" id="outofstockTable">
     <thead>
       <tr>
         <th class="fw-bold">Sr.</th>
-        <th class="fw-bold">Product Name</th>
-        <th class="fw-bold">Customer Name</th>
-        <th class="fw-bold">Comment</th>
+        <th class="fw-bold">User Name</th>
+        <th class="fw-bold">Title</th>
+        <th class="fw-bold">Story</th>
 
       </tr>
     </thead>
     <tbody>
-
-      @if (isset($comments))
+      @if (count($stories) > 0)
       @php
-      $sr=0;
+      $sr = 0;
       @endphp
-      @foreach ($comments as $comment)
+      @foreach ($stories as $story)
       @php
-      $sr ++;
+      $sr++;
       @endphp
       <tr>
         <td>{{ $sr }}</td>
-        <td>{{ $comment->product->name }}</td>
-        <td>{{ $comment->user->name }}</td>
-        <td>{{ $comment->comment }}</td>
+        <td>{{ $story->user->name }}</td>
+        <td>{{ $story->title }}</td>
+
+        <td>{{ $story->story }}</td>
+
       </tr>
+
       @endforeach
 
       @endif
-
-
-
 
 
     </tbody>
 
   </table>
 
-
 </div>
+
 <script>
   $(document).ready(function() {
     $('#outofstockTable').DataTable();

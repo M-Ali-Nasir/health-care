@@ -9,7 +9,6 @@
 </head>
 
 <body>
-    3+
 
     <header>
         <h1>Paint Now</h1>
@@ -85,7 +84,34 @@
     <a href="#" class="back-to-top">↑</a>
     <!-- about section ends -->
 
-    <script src="ra4 paint now.js"></script>
+    <script src="{{ asset('imgs/ra4 paint now.js') }}"></script>
+    <script>
+        document.getElementById('save-painting').addEventListener('click', function() {
+            const canvas = document.getElementById('paint-canvas');
+            const dataURL = canvas.toDataURL('image/png'); // Convert the canvas to a data URL (base64 encoded image)
+            
+            fetch('/save-painting', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}' // Laravel CSRF protection
+                },
+                body: JSON.stringify({ image: dataURL })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.success);
+                } else {
+                    alert(data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while saving your painting.');
+            });
+        });
+    </script>
 </body>
 
 </html>

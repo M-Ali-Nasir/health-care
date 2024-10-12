@@ -3,34 +3,39 @@
 @section('main')
 <div class="container">
 
-  <h4>All Categories:</h4>
-
+  <h4>User Appointment Alerts:</h4>
+  @php
+  use Carbon\Carbon;
+  @endphp
 
   <table class="table" id="outofstockTable">
     <thead>
       <tr>
         <th class="fw-bold">Sr.</th>
-        <th class="fw-bold">Customre Id</th>
-        <th class="fw-bold">Customer Name</th>
-        <th class="fw-bold">Customer Email</th>
+        <th class="fw-bold">User Name</th>
+        <th class="fw-bold">Appointment Time</th>
+        <th class="fw-bold">Appointment Date</th>
+        <th class="fw-bold">Doctor Name</th>
+
 
       </tr>
     </thead>
     <tbody>
 
-      @if (isset($customers))
+      @if (isset($appointments))
       @php
       $sr=0;
       @endphp
-      @foreach ($customers as $customer)
+      @foreach ($appointments as $appoitment)
       @php
       $sr ++;
       @endphp
       <tr>
         <td>{{ $sr }}</td>
-        <td>{{ $customer->id }}</td>
-        <td>{{ $customer->name }}</td>
-        <td>{{ $customer->email }}</td>
+        <td>{{ $appoitment->user->name }}</td>
+        <td>{{ Carbon::parse($appoitment->appointment_time)->format('h:i A') }}</td>
+        <td>{{ Carbon::parse($appoitment->appointment_date)->format('d-m-Y') }}</td>
+        <td>{{ $appoitment->doctor_name }}</td>
       </tr>
       @endforeach
 
@@ -46,7 +51,6 @@
 
 
 </div>
-
 <script>
   $(document).ready(function() {
     $('#outofstockTable').DataTable();

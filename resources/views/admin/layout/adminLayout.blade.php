@@ -52,29 +52,27 @@
   <script src="{{ asset('assets/js/config.js') }}"></script>
 </head>
 
-<body>
+<body style="background-color: #f5e3f4">
   <!-- Layout wrapper -->
   <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
       <!-- Menu -->
 
-      <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+      <aside id="layout-menu" class="layout-menu menu-vertical menu " style="background-color: #f1ecf1">
         <div class="app-brand demo">
           <a href="{{ route('dashboard') }}" class="app-brand-link">
 
             <span class="app-brand-text demo menu-text fw-semibold ms-2">Epilepsy</span>
           </a>
 
-          <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
-            <i class="menu-toggle-icon d-xl-block align-middle"></i>
-          </a>
+
         </div>
 
         <div class="menu-inner-shadow"></div>
 
         <ul class="menu-inner py-1">
           <!-- Dashboards -->
-          <li class="menu-item active open">
+          <li class="menu-item {{ Route::is('dashboard') ? 'active open': '' }}">
             <a href="{{ route('dashboard') }}" class="menu-link">
               <i class="menu-icon tf-icons ri-home-smile-line"></i>
               <div data-i18n="Dashboards">Dashboards</div>
@@ -82,27 +80,34 @@
 
           </li>
 
+
           <!-- Layouts -->
 
 
-          <li class="menu-item">
-            <a href="" class="menu-link">
+          <li class="menu-item {{ Route::is('all-users') ? 'active open': '' }}">
+            <a href="{{ route('all-users') }}" class="menu-link">
+              <i class="menu-icon tf-icons ri-user-smile-line"></i>
               <div data-i18n="Blank">All Users</div>
             </a>
           </li>
-          <li class="menu-item">
-            <a href="" class="menu-link">
+          <li class="menu-item {{ Route::is('admin-appointments') ? 'active open': '' }}">
+            <a href="{{ route('admin-appointments') }}" class="menu-link">
               <div data-i18n="Without menu">User Appointments</div>
             </a>
           </li>
-          <li class="menu-item">
-            <a href="" class="menu-link">
+          <li class="menu-item {{ Route::is('admin-medicines') ? 'active open': '' }}">
+            <a href="{{ route('admin-medicines') }}" class="menu-link">
               <div data-i18n="Blank">User Medicine Alrams</div>
             </a>
           </li>
-          <li class="menu-item">
-            <a href="" class="menu-link">
+          <li class="menu-item {{ Route::is('admin-seizures') ? 'active open': '' }}">
+            <a href="{{ route('admin-seizures') }}" class="menu-link">
               <div data-i18n="Without menu">User Seizure</div>
+            </a>
+          </li>
+          <li class="menu-item {{ Route::is('admin-stories') ? 'active open': '' }}">
+            <a href="{{ route('admin-stories') }}" class="menu-link">
+              <div data-i18n="Without menu">User Stories</div>
             </a>
           </li>
 
@@ -129,47 +134,6 @@
 
 
             <ul class="navbar-nav flex-row align-items-center ms-auto">
-              <!-- Place this tag where you want the button to render. -->
-              <li class="nav-item lh-1 me-4">
-                <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);" data-bs-toggle="dropdown">
-                  <div class="avatar avatar-online">
-                    <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
-                  </div>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end mt-3 py-2">
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      <div class="d-flex align-items-center">
-                        <div class="flex-shrink-0 me-2">
-                          <div class="avatar avatar-online">
-                            <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
-                          </div>
-                        </div>
-                        <div class="flex-grow-1">
-                          <h6 class="mb-0 small">{{ $user->name }}</h6>
-                          <small class="text-muted">{{ $user->email }}</small>
-                        </div>
-                      </div>
-                    </a>
-                  </li>
-                  <li>
-                    <div class="dropdown-divider"></div>
-                  </li>
-
-                  <li>
-                    <div class="dropdown-divider"></div>
-                  </li>
-                  <li>
-                    <div class="d-grid px-4 pt-2 pb-1">
-
-                      <a class="btn btn-danger d-flex" href="{{ route('logout') }}">
-                        <small class="align-middle">Logout</small>
-                        <i class="ri-logout-box-r-line ms-2 ri-16px"></i>
-                      </a>
-                    </div>
-                  </li>
-                </ul>
-              </li>
 
 
 
@@ -179,7 +143,6 @@
 
                   <a class="btn btn-danger d-flex" href="{{ route('logout') }}">
                     <small class="align-middle">Logout</small>
-                    <i class="ri-logout-box-r-line ms-2 ri-16px"></i>
                   </a>
 
                 </div>

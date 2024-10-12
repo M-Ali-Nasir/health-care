@@ -28,6 +28,10 @@
                     <p><strong>Location:</strong> Lahore</p>
                     <p>Prof. Dr. Muhammad Abid Professor of Mechanical Engineering, CUI Wah Campus Email:
                         drabid@ciitwah.edu.pk Phone/Ext. #: 0092519314382-3</p>
+                    <div>
+                        <a href="https://www.marham.pk/online-consultation/neuro-surgeon/lahore/dr-mohammad-abid-13004"
+                            target="_blank">More Information</a>
+                    </div>
                 </div>
                 <div class="specialist-card">
                     <img src="https://th.bing.com/th/id/OIP.vJ2lVJgL7kh_AYoRdtA5lwAAAA?rs=1&pid=ImgDetMain"
@@ -37,6 +41,11 @@
                         spinal cord, and peripheral nerves. </p>
                     <p><strong>Location:</strong> Lahore</p>
                     <p> You can contact the Neurologist through Marham's helpline: 0311-1222398</p>
+                    <div>
+                        <a href="https://www.marham.pk/online-consultation/neuro-physician/lahore/asst-prof-dr-rashid-imran-4483"
+                            target="_blank">More
+                            Information</a>
+                    </div>
                 </div>
                 <div class="specialist-card">
                     <img src="https://www.shifaam.com/uploads/profile-images/1650520737-doctor.jpeg"
@@ -47,6 +56,10 @@
                     <p><strong>Location:</strong> Islamabad</p>
                     <p>Dr. Ghulam Mustafa Professor Post PhD
                         ghulam.mustafa@iub.edu.pk 0300-6855221</p>
+                    <div>
+                        <a href="https://www.marham.pk/online-consultation/neuro-physician/islamabad/asst-prof-dr-ghulam-mujtaba-14226"
+                            target="_blank">More Information</a>
+                    </div>
                 </div>
                 <div class="specialist-card">
                     <img src="https://th.bing.com/th/id/OIP.aIv-IRm8X85WUczfYJ4ekwAAAA?rs=1&pid=ImgDetMain"
@@ -56,8 +69,76 @@
                         paralysis, and Parkinson's disease.</p>
                     <p><strong>Location:</strong> Sialkot</p>
                     <p>You can contact Dr. Kaukab Fatima at 042-32591427</p>
+                    <div>
+                        <a href="https://www.marham.pk/online-consultation/neuro-physician/sialkot/dr-kaukab-fatima-31759"
+                            target="_blank">More Information</a>
+                    </div>
                 </div>
+
             </section>
+            <section class="specialists-container">
+                <div class="specialist-card">
+                    <img src="https://d1t78adged64l7.cloudfront.net/images/profile-pics/doctors/1595375912_2f07916b-aeef-46d2-9720-e669878280ed.webp?t=1631267587"
+                        alt="Dr. Mohammad Abid">
+                    <h3>Assoc. Prof. Dr. Muhammad Farooq</h3>
+                    <p> General Surgeon, Andrologist, Male Sexual Health Specialist, Laparoscopic Surgeon, Sexologist,
+                        Urologist
+                        M.B.B.S, F.C.P.S. (Surgery), F.C.P.S (Urology)</p>
+                    <p><strong>Location:</strong> Lahore</p>
+                    <p>In order to book an appointment with Assoc. Prof. Dr. Muhammad Farooq you can call 04238900939
+                    </p>
+                    <div>
+                        <a href="https://www.marham.pk/doctors/lahore/urologist/assoc-prof-dr-muhammad-farooq"
+                            target="_blank">More Information</a>
+                    </div>
+                </div>
+                <div class="specialist-card">
+                    <img
+                        src="https://d1t78adged64l7.cloudfront.net/images/profile-pics/doctors/1690963489_533e7118-5035-4763-b2b9-d4c0833d4625.webp?t=1719296387">
+                    <h3>Dr. Rumessa Iqbal </h3>
+                    <p>Dr. Rumessa Iqbal is a Psychiatrist with 3 years of experience currently available at Online
+                        Video Consultation, Video Consultation. Dr. Rumessa Iqbal has over 3 years of experience in her
+                        field.</p>
+                    <p><strong>Location:</strong> Lahore</p>
+                    <p> You can book an in-person appointment or an online video consultation with Dr. Rumessa Iqbal
+                        through oladoc.com or by calling at 04238900939.</p>
+                    <div>
+                        <a href="https://oladoc.com/pakistan/video-consultation/dr/psychiatrist/rumessa-iqbal/2520836"
+                            target="_blank">More
+                            Information</a>
+                    </div>
+                </div>
+                <div class="specialist-card">
+                    <img src="https://d1t78adged64l7.cloudfront.net/images/profile-pics/doctors/1675836818_714b3cb5-6e43-4c88-aad1-25e18ef37451.webp?t=1715946230"
+                        alt="Asst. Prof. Dr. Ghulam Mujtaba">
+                    <h3>Dr. Aaizah Iqbal</h3>
+                    <p> Dr. Aaizah Iqbal is a Pediatrician with 5 years of experience currently available at Online
+                        Video Consultation, Faisalabad.</p>
+                    <p><strong>Location:</strong> Faisalabad</p>
+                    <p>You can book an in-person appointment or an online video consultation with Dr. Aaizah Iqbal
+                        through oladoc.com or by calling at 0415068065.</p>
+                    <div>
+                        <a href="https://oladoc.com/pakistan/faisalabad/dr/pediatrician/aaizah-iqbal/2096588"
+                            target="_blank">More Information</a>
+                    </div>
+                </div>
+                <div class="specialist-card">
+                    <img src="https://d1t78adged64l7.cloudfront.net/images/profile-pics/doctors/1718864346_id_pic-removebg-preview.webp?t=1718864347"
+                        alt="Dr. Kokab Fatima">
+                    <h3>Dr. Ali Shamim Atta Ullah</h3>
+                    <p>Dr. Ali Shamim Atta Ullah is a top Dentist with 20 years of experience. Dr. Ali Shamim Atta Ullah
+                        has over 20 years of experience in his field.</p>
+                    <p><strong>Location:</strong> Rawalpindi</p>
+                    <p>You can book an in-person appointment or an online video consultation with Dr. Ali Shamim Atta
+                        Ullah through oladoc.com or by calling at 0518151800.</p>
+                    <div>
+                        <a href="https://oladoc.com/pakistan/rawalpindi/dr/dentist/ali-shamim-atta-ullah/3466"
+                            target="_blank">More Information</a>
+                    </div>
+                </div>
+
+            </section>
+
         </div>
 
     </main>

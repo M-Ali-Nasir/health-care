@@ -11,25 +11,28 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'homeView'])->name('home');
 
-Route::get('/faqs', [HomeController::class, 'faqsView'])->name('faqs');
-
-Route::get('/dr-profiles', [HomeController::class, 'drProfileView'])->name('dr-profile');
-
-Route::get('/privacy-policy', [HomeController::class, 'privacyPolicyView'])->name('privacy-policy');
-//
-Route::get('/read-story', [HomeController::class, 'readStoryView'])->name('read-story');
-
-
-
-Route::get('/user-profile', [HomeController::class, 'userProfileView'])->name('user-profile');
-
-Route::get('/educational-resources', [HomeController::class, 'educationalResourcesView'])->name('educational-resources');
-
-Route::get('/breathing-exercise', [HomeController::class, 'breathingExerciseView'])->name('breathing-exercise');
-
 
 
 Route::middleware(['role:user'])->group(function () {
+
+  Route::get('/faqs', [HomeController::class, 'faqsView'])->name('faqs');
+
+  Route::get('/dr-profiles', [HomeController::class, 'drProfileView'])->name('dr-profile');
+
+  Route::get('/privacy-policy', [HomeController::class, 'privacyPolicyView'])->name('privacy-policy');
+  //
+  Route::get('/read-story', [HomeController::class, 'readStoryView'])->name('read-story');
+
+
+
+  Route::get('/user-profile', [HomeController::class, 'userProfileView'])->name('user-profile');
+
+  Route::get('/educational-resources', [HomeController::class, 'educationalResourcesView'])->name('educational-resources');
+
+  Route::get('/breathing-exercise', [HomeController::class, 'breathingExerciseView'])->name('breathing-exercise');
+
+
+
 
   Route::get('/write-story', [HomeController::class, 'writeStoryView'])->name('write-story');
   Route::post('/store-stories', [StoryController::class, 'store'])->name('stories-store');
@@ -50,14 +53,18 @@ Route::middleware(['role:user'])->group(function () {
   Route::get('/medicine-alarm-history', [HomeController::class, 'medicineAlarmHistoryView'])->name('medicine-alarm-history');
   Route::post('/medicines', [MedicineController::class, 'store'])->name('medicines-store');
   Route::get('/delete-medicine/{id}', [MedicineController::class, 'deleteMedicine'])->name('delete-medicine');
+
+
+
+  Route::get('/self-diagnosis', [HomeController::class, 'selfDiagnosisView'])->name('self-diagnosis');
+
+  Route::get('/relaxation-art', [HomeController::class, 'relaxationArtView'])->name('relaxation-art');
+
+  Route::get('/paint-now', [HomeController::class, 'paitNowView'])->name('paint-now');
+  Route::post('/save-painting', [HomeController::class, 'savePainting'])->name('save.painting');
 });
 
 
-Route::get('/self-diagnosis', [HomeController::class, 'selfDiagnosisView'])->name('self-diagnosis');
-
-Route::get('/relaxation-art', [HomeController::class, 'relaxationArtView'])->name('relaxation-art');
-
-Route::get('/paint-now', [HomeController::class, 'paitNowView'])->name('paint-now');
 
 
 
@@ -72,4 +79,14 @@ Route::get('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::middleware(['role:admin'])->group(function () {
   Route::get('/admin', [AdminController::class, 'dashboardView'])->name('dashboard');
+
+  Route::get('/admin/all-users', [AdminController::class, 'allUserView'])->name('all-users');
+
+  Route::get('/admin/appointments', [AdminController::class, 'appointmentView'])->name('admin-appointments');
+
+  Route::get('/admin/medicines', [AdminController::class, 'medicineView'])->name('admin-medicines');
+
+  Route::get('/admin/seizure', [AdminController::class, 'seizureView'])->name('admin-seizures');
+
+  Route::get('/admin/stories', [AdminController::class, 'storiesView'])->name('admin-stories');
 });
