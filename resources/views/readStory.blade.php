@@ -14,10 +14,22 @@
     </header>
     <main>
         <section id="story-container">
-            <!-- Stories will be loaded here -->
+            @if ($stories)
+            @php
+            $sr=0;
+            @endphp
+            @foreach ($stories as $story)
+            @php
+            $sr++;
+            @endphp
+            <h4 style="margin: 0">{{ $sr }}: {{ $story->title }}</h4>
+            <p>By {{ $story->user->name }}</p>
+            <p>{{ $story->story }}</p>
+            @endforeach
+            @endif
         </section>
         <section class="add-story">
-            <button1 type="Add Story"><a href="write stories.html" class="add-story">Add Your Story</a></button1>
+            <a href="{{ route('write-story') }}" class="add-story">Add Your Story</a>
         </section>
     </main>
     <footer>

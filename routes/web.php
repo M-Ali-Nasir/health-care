@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\SeizureRedocrdController;
+use App\Http\Controllers\StoryController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'homeView'])->name('home');
@@ -18,7 +19,7 @@ Route::get('/privacy-policy', [HomeController::class, 'privacyPolicyView'])->nam
 //
 Route::get('/read-story', [HomeController::class, 'readStoryView'])->name('read-story');
 
-Route::get('/write-story', [HomeController::class, 'writeStoryView'])->name('write-story');
+
 
 Route::get('/user-profile', [HomeController::class, 'userProfileView'])->name('user-profile');
 
@@ -30,17 +31,25 @@ Route::get('/breathing-exercise', [HomeController::class, 'breathingExerciseView
 
 Route::middleware(['role:user'])->group(function () {
 
+  Route::get('/write-story', [HomeController::class, 'writeStoryView'])->name('write-story');
+  Route::post('/store-stories', [StoryController::class, 'store'])->name('stories-store');
+  Route::get('/delete-story/{id}', [StoryController::class, 'deleteStory'])->name('delete-story');
+
   Route::get('/appointment-alert-set', [HomeController::class, 'appointmentAlertSetView'])->name('appointment-alert-set');
   Route::get('/appointment-alert-history', [HomeController::class, 'appointmentAlertHistoryView'])->name('appointment-alert-history');
   Route::post('/appointments/store', [AppointmentController::class, 'store'])->name('appointments-store');
+  Route::get('/delete-appointment/{id}', [AppointmentController::class, 'deleteAppointment'])->name('delete-appointment');
+
 
   Route::get('/seizure-record-history', [HomeController::class, 'seizureRecordHistoryView'])->name('seizure-record-history');
   Route::get('/seizure-record-form', [HomeController::class, 'seizureRecordFormView'])->name('seizure-record-form');
   Route::post('/store-seizure-record', [SeizureRedocrdController::class, 'storeSeizureRecord'])->name('store-seizure-record');
+  Route::get('/delete-seizure-record/{id}', [SeizureRedocrdController::class, 'deleteSeizureRecord'])->name('delete-seizure-record');
 
   Route::get('/medicine-alarm-set', [HomeController::class, 'medicineAlarmSetView'])->name('medicine-alarm-set');
   Route::get('/medicine-alarm-history', [HomeController::class, 'medicineAlarmHistoryView'])->name('medicine-alarm-history');
   Route::post('/medicines', [MedicineController::class, 'store'])->name('medicines-store');
+  Route::get('/delete-medicine/{id}', [MedicineController::class, 'deleteMedicine'])->name('delete-medicine');
 });
 
 

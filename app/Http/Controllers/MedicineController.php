@@ -32,4 +32,14 @@ class MedicineController extends Controller
 
         return redirect()->route('medicine-alarm-history')->with('success', 'Medicine alert created successfully');
     }
+
+    //Delete Medicine Record
+
+    public function deleteMedicine($id)
+    {
+        $medicine = Medicine::findOrFail($id);
+        $medicine->delete();
+
+        return redirect()->back()->with('success', 'Medicine alert deleted successfully.');
+    }
 }

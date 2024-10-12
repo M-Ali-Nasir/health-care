@@ -13,30 +13,16 @@
         <h1>Story Submission</h1>
     </header>
     <section>
-        <form id="storyForm1">
+        <form action="{{ route('stories-store') }}" method="POST">
+            @csrf
             <label for="storyTitle">Title:</label>
-            <input type="text" id="storyTitle" name="storyTitle" required>
+            <input type="text" id="storyTitle" name="title" required>
             <label for="storyContent">Story:</label>
-            <textarea id="storyContent" name="storyContent" rows="5" required></textarea>
-            <button1 type="submit"><a href="read stories page.html" class="storyForm1">Save</a></button1>
+            <textarea id="storyContent" name="story" rows="5" required></textarea>
+            <button type="submit" class="storyForm1" style="cursor: pointer;">Save</button>
         </form>
     </section>
-    <script>
-        document.getElementById('storyForm1').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
 
-            const title = document.getElementById('storyTitle').value;
-            const content = document.getElementById('storyContent').value;
-
-            if (title && content) {
-                const stories = JSON.parse(localStorage.getItem('stories') || '[]');
-                stories.push({ title, content });
-                localStorage.setItem('stories', JSON.stringify(stories));
-                alert('Story submitted successfully!');
-                document.getElementById('storyForm1').reset();
-            }
-        });
-    </script>
     <footer>
         <div class="footer-container">
             <div class="footer-section about">

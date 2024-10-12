@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Appointment;
 use App\Models\Medicine;
 use App\Models\SeizureRecord;
+use App\Models\Story;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -43,7 +45,8 @@ class HomeController extends Controller
     //Read story Page
     public function readStoryView()
     {
-        return view('readStory');
+        $stories = Story::with('user')->get();
+        return view('readStory', compact('stories'));
     }
 
     //Write story Page
@@ -56,7 +59,10 @@ class HomeController extends Controller
     //User Profile Page
     public function userProfileView()
     {
-        return view('userProfile');
+        $user = User::where('id', Auth::id())->with('appointment', 'medicine', 'story', 'seizureRecord')->first();
+
+
+        return view('userProfile', compact('user'));
     }
 
 

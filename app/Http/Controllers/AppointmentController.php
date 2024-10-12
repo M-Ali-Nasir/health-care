@@ -26,4 +26,13 @@ class AppointmentController extends Controller
 
         return redirect()->route('appointment-alert-history')->with('success', 'Appointment created successfully.');
     }
+
+    //Delete appointment
+    public function deleteAppointment($id)
+    {
+        $appointment = Appointment::findOrFail($id);
+        $appointment->delete();
+
+        return redirect()->back()->with('success', 'Appointment deleted successfully.');
+    }
 }

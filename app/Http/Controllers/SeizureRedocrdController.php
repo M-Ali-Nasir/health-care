@@ -29,4 +29,13 @@ class SeizureRedocrdController extends Controller
 
         return redirect()->route('seizure-record-history')->with('success', 'Seizure record saved successfully.');
     }
+
+    //delete seizure record
+    public function deleteSeizureRecord($id)
+    {
+        $seizureRecord = SeizureRecord::findOrFail($id);
+        $seizureRecord->delete();
+
+        return redirect()->back()->with('success', 'Seizure record deleted successfully.');
+    }
 }
