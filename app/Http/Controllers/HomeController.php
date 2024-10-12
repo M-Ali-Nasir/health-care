@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use App\Models\Medicine;
 use App\Models\SeizureRecord;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -130,6 +131,8 @@ class HomeController extends Controller
     //medicine Alarm Set Page
     public function medicineAlarmSetView()
     {
+
+
         return view('medicineAlarmSet');
     }
 
@@ -137,6 +140,7 @@ class HomeController extends Controller
     //medicine Alarm History Page
     public function medicineAlarmHistoryView()
     {
-        return view('medicineAlarmHistory');
+        $medicines = Medicine::where('user_id', Auth::id())->get();
+        return view('medicineAlarmHistory', compact('medicines'));
     }
 }

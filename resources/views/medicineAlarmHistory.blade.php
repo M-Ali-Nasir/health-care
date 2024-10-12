@@ -1,3 +1,6 @@
+@php
+use Carbon\Carbon;
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,36 +21,36 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Year</th>
-                        <th>Month</th>
-                        <th>Date</th>
+                        <th>Starting Date</th>
+                        <th>Ending Date</th>
+                        <th>Alarm Frequency</th>
                         <th>Time</th>
+                        <th>Medicine Type</th>
                         <th>Medicine Name</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- Example of alarm history rows. You should dynamically generate these rows based on your data. -->
+                    @if ($medicines)
+                    @foreach ($medicines as $medicine)
+
                     <tr>
-                        <td>2024</td>
-                        <td>July</td>
-                        <td>28</td>
-                        <td>05:03 pm</td>
-                        <td>Aspirin</td>
+                        <td>{{ Carbon::parse($medicine->start_date)->format('d-m-Y') }}</td>
+                        <td>{{ Carbon::parse($medicine->end_date)->format('d-m-Y') }}</td>
+                        <td>{{ $medicine->alarm_frequency }}</td>
+                        <td>{{ Carbon::parse($medicine->alarm_time)->format('h:i A') }}</td>
+                        <td>{{ $medicine->medication_type }}</td>
+                        <td>{{ $medicine->medicine_name }}</td>
                     </tr>
-                    <tr>
-                        <td>2024</td>
-                        <td>June</td>
-                        <td>15</td>
-                        <td>05:03 pm</td>
-                        <td>Ibuprofen</td>
-                    </tr>
-                    <!-- Add more rows here -->
+
+                    @endforeach
+                    @endif
                 </tbody>
             </table>
         </section>
         <section class="add-alarm">
-            <button2 type="submit"><a href="{{ route('medicine-alarm-set') }}" class="add-alarm">Add New Alarm</a>
-            </button2>
+            <a href="{{ route('medicine-alarm-set') }}" class="add-alarm" style="padding: 5px ;text-decoration:none">Add
+                New Alarm</a>
+
         </section>
     </main>
     <footer>

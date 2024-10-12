@@ -12,53 +12,81 @@
 </header>
 
 <body>
-    <div class="container">
-        <form id="medicationForm">
+    <div class="container" style="position: relative; display:flex; justify-content:between">
+        <form id="medicationForm" class="postition:relative" action="{{ route('medicines-store') }}" method="POST">
+            @csrf
             <div class="form-group">
                 <label for="medType"> Medication Type:</label>
-                <select id="medType" name="medType">
-                    <option value="pills">Pills</option>
-                    <option value="syrup">Syrup</option>
-                    <option value="ointment">Ointment</option>
-                    <option value="injections">Injections</option>
-                    <option value="other">Other</option>
+                <select id="medType" name="medication_type" required>
+                    <option value="Pills">Pills</option>
+                    <option value="Syrup">Syrup</option>
+                    <option value="Ointment">Ointment</option>
+                    <option value="Injections">Injections</option>
+                    <option value="Other">Other</option>
                 </select>
+                @error('medication_type')
+                {{ $message }}
+
+                @enderror
             </div>
             <div class="form-group">
                 <label for="medName">Medicine Name:</label>
-                <input type="text" id="medName" name="medName" required>
+                <input type="text" id="medName" name="medicine_name">
+                @error('medicine_name')
+                {{ $message }}
+
+                @enderror
             </div>
             <div class="form-group">
                 <label for="startDate">Start Date:</label>
-                <input type="date" id="startDate" name="startDate" required>
+                <input type="date" id="startDate" name="start_date" required>
+                @error('start_date')
+                {{ $message }}
+
+                @enderror
             </div>
             <div class="form-group">
                 <label for="endDate">End Date:</label>
-                <input type="date" id="endDate" name="endDate" required>
+                <input type="date" id="endDate" name="end_date" required>
+                @error('end_date')
+                {{ $message }}
+
+                @enderror
             </div>
             <div class="form-group">
                 <label for="alarmTime">Time of Alarm:</label>
-                <input type="time" id="alarmTime" name="alarmTime" required>
+                <input type="time" id="alarmTime" name="alarm_time" required>
+                @error('alarm_time')
+                {{ $message }}
+
+                @enderror
             </div>
             <div class="form-group">
                 <label for="alarmFrequency">Alarm Frequency:</label><br>
-                <input type="radio" id="daily" name="alarmFrequency" value="daily" checked>
+                <input type="radio" id="daily" name="alarm_frequency" value="daily" checked>
                 <label for="daily">Daily</label>
-                <input type="radio" id="weekly" name="alarmFrequency" value="weekly">
+                <input type="radio" id="weekly" name="alarm_frequency" value="weekly">
                 <label for="weekly">Weekly</label>
+                @error('alarm_frequency')
+                {{ $message }}
+
+                @enderror
             </div>
             <div class="form-group1">
-                <button1 type="Save"><a href="medicine alarm saved history page.html" class="form-group1">Save</a>
-                </button1>
+                <button type="submit">Save
+                </button>
             </div>
         </form>
+
+        <div>
+            <p>Bringing the future of healthcare</p>
+        </div>
+        <div class="Image">
+            <img style="position: relative" src="{{ asset('imgs/OIP__7_-removebg-preview (2).png') }}"
+                alt="Description of the image">
+        </div>
     </div>
-    <div>
-        <p>Bringing the future of healthcare</p>
-    </div>
-    <div class="Image">
-        <img src="C:\Users\IT Solution\Downloads\OIP__7_-removebg-preview.png" alt="Description of the image">
-    </div>
+
     <footer>
         <div class="footer-container">
             <div class="footer-section about">

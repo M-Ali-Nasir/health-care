@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\SeizureRedocrdController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +40,7 @@ Route::middleware(['role:user'])->group(function () {
 
   Route::get('/medicine-alarm-set', [HomeController::class, 'medicineAlarmSetView'])->name('medicine-alarm-set');
   Route::get('/medicine-alarm-history', [HomeController::class, 'medicineAlarmHistoryView'])->name('medicine-alarm-history');
+  Route::post('/medicines', [MedicineController::class, 'store'])->name('medicines-store');
 });
 
 
