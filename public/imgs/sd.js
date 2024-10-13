@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const questionBlock = `
             <label for="q${qNum}">${qNum}. ${question}</label>
             <div class="radio-options">
-                <input type="radio" id="q${qNum}_yes" name="q${qNum}" value="yes">
+                <input type="radio" id="q${qNum}_yes" name="q${qNum}" value="yes" required>
                 <label for="q${qNum}_yes">Yes</label>
                 <input type="radio" id="q${qNum}_no" name="q${qNum}" value="no">
                 <label for="q${qNum}_no">No</label>

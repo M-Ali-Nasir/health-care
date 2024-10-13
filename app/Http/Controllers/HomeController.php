@@ -8,6 +8,7 @@ use App\Models\Painting;
 use App\Models\SeizureRecord;
 use App\Models\Story;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
@@ -191,5 +192,61 @@ class HomeController extends Controller
     {
         $medicines = Medicine::where('user_id', Auth::id())->get();
         return view('medicineAlarmHistory', compact('medicines'));
+    }
+
+
+
+    //checking for alarm time
+
+    public function checkAlarm()
+    {
+
+        if (Auth::user()) {
+
+
+            $userId = Auth::id();
+
+            $currentDate = Carbon::now()->toDateString();
+            $currentTime = Carbon::now()->timezone('Asia/Karachi')->format('H:i');
+
+
+            // Check for appointment alarm
+            $appointment = Appointment::where('user_id', $userId)
+                ->where('appointment_date', $currentDate)
+                ->where('appointment_time', $currentTime)
+                ->first();
+
+            if ($appointment) {
+                return response()->json([
+                    'alarm' => true,
+                    'message' => 'You have an appointment now.',
+                ]);
+            }
+
+            // Check for medicine alarm
+            $medicine = Medicine::where('user_id', $userId)
+                ->where('start_date', '<=', $currentDate)
+                ->where('end_date', '>=', $currentDate)
+                ->where('alarm_time', $currentTime)
+                ->where(function ($query) use ($currentDate) {
+                    $query->where('alarm_frequency', 'daily')
+                        ->orWhere(function ($query) use ($currentDate) {
+                            $query->where('alarm_frequency', 'weekly')
+                                ->whereRaw('WEEKDAY(start_date) = WEEKDAY(?)', [$currentDate]);
+                        });
+                })
+                ->first();
+
+            if ($medicine) {
+                return response()->json([
+                    'alarm' => true,
+                    'message' => 'It is time to take your medicine.',
+                ]);
+            }
+
+            return response()->json(['alarm' => false]);
+        } else {
+            return response()->json(['alarm' => false]);
+        }
     }
 }

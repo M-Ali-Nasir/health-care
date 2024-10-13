@@ -65,7 +65,7 @@ Route::middleware(['role:user'])->group(function () {
 });
 
 
-
+Route::get('/check-alarm', [HomeController::class, 'checkAlarm'])->name('check.alarm');
 
 
 //Auth routes

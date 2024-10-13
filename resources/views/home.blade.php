@@ -234,6 +234,7 @@
             </div>
         </div>
 
+
         <div class="footer-bottom">
             <p>&copy; 2024 Your Website Name. All rights reserved.</p>
         </div>
@@ -244,50 +245,36 @@
 
 
     {{-- npm install --save laravel-echo pusher-js --}}
-
-    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
-    <script src="{{ asset('js/echo.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        // Configure Echo and Pusher
-    window.Pusher = require('pusher-js');
-    window.Echo = new Echo({
-        broadcaster: 'pusher',
-        key: 'your-pusher-key',
-        cluster: 'your-cluster',
-        forceTLS: true
-    });
-
-    // Set the logged-in user's ID
-    const userId = "{{ Auth::id() }}";
-
-    if (userId) {
-        Echo.private(`App.Models.User.${userId}`)
-            .notification((notification) => {
-                // Show the browser alert
-                alert(notification.title + ': ' + notification.description);
-
-                // Play the alarm sound
-                const audio = new Audio('{{ asset('alarm/alarm.mp3') }}');
-                audio.play();
-                
-                // Optional: Show a visual notification
-                if (Notification.permission === "granted") {
-                    new Notification(notification.title, {
-                        body: notification.description,
-                        icon: '/path/to/icon.png'
-                    });
-                } else if (Notification.permission !== "denied") {
-                    Notification.requestPermission().then(permission => {
-                        if (permission === "granted") {
-                            new Notification(notification.title, {
-                                body: notification.description,
-                                icon: '/path/to/icon.png'
-                            });
-                        }
-                    });
-                }
-            });
-    }
+        function checkForAlarms() {
+            console.log('hello');
+            
+            fetch('/check-alarm')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.alarm) {
+                        // Play alarm sound
+                        const audio = new Audio('{{ asset('alarm/alarm.mp3') }}');
+                        audio.play();
+                        // Show notification
+                        Swal.fire({
+                            title: 'Alarm!',
+                            text: data.message,
+                            icon: 'warning',
+                            confirmButtonText: 'OK'
+                        }).then(() => {
+                            // Stop the alarm when the alert is closed
+                            audio.pause();
+                            audio.currentTime = 0; // Reset audio to the beginning
+                        });
+                    }
+                })
+                .catch(error => console.error('Error checking for alarms:', error));
+        }
+    
+        // Run the function every minute
+        setInterval(checkForAlarms, 60000);
     </script>
 
 </body>
