@@ -113,33 +113,35 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
             function checkForAlarms() {
-            console.log('hello');
+                console.log('Checking for alarms...');
+                
+                fetch('/check-alarm')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.alarm) {
+                          
+                            const audio = new Audio('{{ asset('alarm/alarm.mp3') }}');
+                            audio.play();
+                          
+                            Swal.fire({
+                                title: 'Alarm!',
+                                text: data.message,
+                                icon: 'warning',
+                                confirmButtonText: 'OK',
+                                allowOutsideClick: false, 
+                            }).then(() => {
+                                
+                                audio.pause();
+                                audio.currentTime = 0; 
+                            });
+                        }
+                    })
+                    .catch(error => console.error('Error checking for alarms:', error));
+            }
+        
+            checkForAlarms();
             
-            fetch('/check-alarm')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.alarm) {
-                        // Play alarm sound
-                        const audio = new Audio('{{ asset('alarm/alarm.mp3') }}');
-                        audio.play();
-                        // Show notification
-                        Swal.fire({
-                            title: 'Alarm!',
-                            text: data.message,
-                            icon: 'warning',
-                            confirmButtonText: 'OK'
-                        }).then(() => {
-                            // Stop the alarm when the alert is closed
-                            audio.pause();
-                            audio.currentTime = 0; // Reset audio to the beginning
-                        });
-                    }
-                })
-                .catch(error => console.error('Error checking for alarms:', error));
-        }
-    
-        // Run the function every minute
-        setInterval(checkForAlarms, 60000);
+            setInterval(checkForAlarms, 60000);
         </script>
 </body>
 
