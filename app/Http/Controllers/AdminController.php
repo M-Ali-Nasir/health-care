@@ -26,6 +26,20 @@ class AdminController extends Controller
         return view('admin.allUsers', compact('users'));
     }
 
+    //active users Page
+    public function activeUserView()
+    {
+        $users = User::where('role', 'user')->where('status', 'active')->get();
+        return view('admin.allUsers', compact('users'));
+    }
+
+    //deactivated users page
+    public function deactivatedUserView()
+    {
+        $users = User::where('role', 'user')->where('status', 'deactivated')->get();
+        return view('admin.allUsers', compact('users'));
+    }
+
     //appointment page
     public function appointmentView()
     {

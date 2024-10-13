@@ -33,4 +33,23 @@ class StoryController extends Controller
 
         return redirect()->back()->with('success', 'Story deleted successfully.');
     }
+
+
+    //update story
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'story' => 'required|string',
+        ]);
+
+        $story = Story::findOrFail($id);
+        $story->update([
+            'title' => $request->title,
+            'story' => $request->story,
+        ]);
+
+        return redirect()->back()->with('success', 'Story updated successfully.');
+    }
 }

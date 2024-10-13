@@ -42,4 +42,30 @@ class MedicineController extends Controller
 
         return redirect()->back()->with('success', 'Medicine alert deleted successfully.');
     }
+
+    //update Medicine record
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'medication_type' => 'required|string|max:255',
+            'medicine_name' => 'required|string|max:255',
+            'start_date' => 'required|date',
+            'end_date' => 'nullable|date|after_or_equal:start_date',
+            'alarm_time' => 'required|date_format:H:i:s',
+            'alarm_frequency' => 'required|in:daily,weekly',
+        ]);
+
+        $medicine = Medicine::findOrFail($id);
+        $medicine->update([
+            'medication_type' => $request->medication_type,
+            'medicine_name' => $request->medicine_name,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'alarm_time' => $request->alarm_time,
+            'alarm_frequency' => $request->alarm_frequency,
+        ]);
+
+        return redirect()->back()->with('success', 'Medicine alert updated successfully');
+    }
 }

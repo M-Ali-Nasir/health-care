@@ -35,4 +35,27 @@ class AppointmentController extends Controller
 
         return redirect()->back()->with('success', 'Appointment deleted successfully.');
     }
+
+
+    //update appointment record
+
+    public function update(Request $request, $id)
+    {
+
+        $request->validate([
+            'doctor_name' => 'required|string|max:255',
+            'appointment_date' => 'required|date',
+            'appointment_time' => 'required|date_format:H:i:s',
+        ]);
+
+
+        $appointment = Appointment::findOrFail($id);
+        $appointment->update([
+            'doctor_name' => $request->doctor_name,
+            'appointment_date' => $request->appointment_date,
+            'appointment_time' => $request->appointment_time,
+        ]);
+
+        return redirect()->back()->with('success', 'Appointment updated successfully.');
+    }
 }

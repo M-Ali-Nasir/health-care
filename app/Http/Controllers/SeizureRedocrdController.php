@@ -38,4 +38,26 @@ class SeizureRedocrdController extends Controller
 
         return redirect()->back()->with('success', 'Seizure record deleted successfully.');
     }
+
+
+    //update seizure record
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'date' => 'required|date',
+            'time' => 'required',
+            'duration' => 'required|integer',
+            'description' => 'nullable|string',
+        ]);
+
+        $seizureRecord = SeizureRecord::findOrFail($id);
+        $seizureRecord->update([
+            'date' => $request->date,
+            'time' => $request->time,
+            'duration' => $request->duration,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->back()->with('success', 'Seizure record updated successfully.');
+    }
 }

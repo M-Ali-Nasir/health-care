@@ -81,6 +81,8 @@ Route::middleware(['role:admin'])->group(function () {
   Route::get('/admin', [AdminController::class, 'dashboardView'])->name('dashboard');
 
   Route::get('/admin/all-users', [AdminController::class, 'allUserView'])->name('all-users');
+  Route::get('/admin/active-users', [AdminController::class, 'activeUserView'])->name('active-users');
+  Route::get('/admin/deactivated-users', [AdminController::class, 'deactivatedUserView'])->name('deactivated-users');
 
   Route::get('/admin/appointments', [AdminController::class, 'appointmentView'])->name('admin-appointments');
 
@@ -89,4 +91,19 @@ Route::middleware(['role:admin'])->group(function () {
   Route::get('/admin/seizure', [AdminController::class, 'seizureView'])->name('admin-seizures');
 
   Route::get('/admin/stories', [AdminController::class, 'storiesView'])->name('admin-stories');
+
+  // Update routes
+  Route::post('/medicine/update/{id}', [MedicineController::class, 'update'])->name('medicine.update');
+  Route::post('/seizure-record/update/{id}', [SeizureRedocrdController::class, 'update'])->name('seizure-record.update');
+  Route::post('/story/update/{id}', [StoryController::class, 'update'])->name('story.update');
+  Route::post('/appointment/update/{id}', [AppointmentController::class, 'update'])->name('appointment.update');
+
+
+  Route::get('/delete-medicine/{id}', [MedicineController::class, 'deleteMedicine'])->name('delete-medicine');
+  Route::get('/delete-appointment/{id}', [AppointmentController::class, 'deleteAppointment'])->name('delete-appointment');
+  Route::get('/delete-story/{id}', [StoryController::class, 'deleteStory'])->name('delete-story');
+  Route::get('/delete-seizure-record/{id}', [SeizureRedocrdController::class, 'deleteSeizureRecord'])->name('delete-seizure-record');
+
+  // User status route
+  Route::get('/user/status/{id}', [AuthController::class, 'changeStatus'])->name('user.status');
 });
